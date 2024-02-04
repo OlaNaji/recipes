@@ -415,7 +415,13 @@ async function updateSectionOnClick(link) {
 
     // Close the sidebar
     closeSidebar();
-    togglePopup()
+    if (mealPage.hasClass('hideBox')) {
+        mealPage.removeClass('hideBox');
+        mealPage.addClass('showBox');
+    } else {
+        mealPage.removeClass('showBox');
+        mealPage.addClass('hideBox');
+    }
 
     $('.section').addClass('d-none');
     $('.nav-link').removeClass('active');
