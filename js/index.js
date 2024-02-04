@@ -186,7 +186,7 @@ function displayMealDetails(meal) {
         </div>
         <div class="info d-flex py-4">
         <a class="source  href="${meal.strSource}"><i class="fa-solid fa-link"></i> blog</a>
-            <a class="youtube ms-4" href="${meal.strYoutube}"><i class="fa fa-youtube-play me-2" style="color:red"></i>youtube</a>
+        <a class="youtube ms-4" href="${meal.strYoutube}"><i class="fa fa-youtube-play me-4" style="color:red"></i>youtube</a>
         </div>
         <div class="info d-flex py-4">
         <div>
@@ -377,9 +377,6 @@ function openSidebar() {
             'top': '0'
         }, 200);
     });
-
-    $('fa-bars').removeClass('fa-spin')
-
 }
 
 function closeSidebar() {
@@ -389,7 +386,6 @@ function closeSidebar() {
     $('.nav-item').animate({
         'top': '500px'
     }, 300);
-    $('fa-bars').addClass('fa-spin')
 }
 
 $('.sidebarBtn, .btn-close').on('click', function () {
