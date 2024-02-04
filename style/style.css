@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 
-html {
-    overflow-x: hidden;
+html, body {
+    overflow-x: hidden !important;
 
 }
 
@@ -102,6 +102,7 @@ html {
 main> :not(:first-child) {
     padding-left: 70px;
     background-color: var(--primary-light);
+    height: fit-content;
     min-height: 100vh;
     font-family: 'biko';
     font-weight: bolder;
