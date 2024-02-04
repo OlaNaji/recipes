@@ -91,9 +91,10 @@ html {
 
 .nav-link.active {
     background-color: #f5f5f510;
-    padding-left: 1rem;
-    border-radius: 20px;
-    width: 80%;
+    padding-left: 0.5rem;
+    margin-block: 0.2rem;
+    width: 90%;
+    border-radius: 15px;
 }
 
 
