@@ -1,6 +1,8 @@
 //------------  API fetching ----------------------//
 async function apiFetch() {
     $(".loading").fadeIn(300).removeClass('hideBox')
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
 
     let url = `https://www.themealdb.com/api/json/v1/1/search.php?s=`
 
@@ -8,6 +10,8 @@ async function apiFetch() {
     let result = await response.json()
 
     $(".loading").addClass('hideBox');
+    document.documentElement.style.overflow = 'auto'
+    document.body.style.overflow = 'auto'
 
     displayMeal(result.meals)
 
@@ -15,6 +19,8 @@ async function apiFetch() {
 
 async function mealDetailsAPI(id) {
     $(".loading").fadeIn(300).removeClass('hideBox')
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
 
     let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
     // console.log(url);
@@ -24,6 +30,9 @@ async function mealDetailsAPI(id) {
     console.log(result.meals[0]);
 
     $(".loading").addClass('hideBox');
+    document.documentElement.style.overflow = 'auto'
+    document.body.style.overflow = 'auto'
+
     displayMealDetails(result.meals[0])
 }
 
@@ -40,6 +49,8 @@ async function savingMealsAPI(id) {
 
 async function mealDetailsAPI(id) {
     $(".loading").fadeIn(300).removeClass('hideBox')
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
 
     let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
     console.log(url);
@@ -49,11 +60,16 @@ async function mealDetailsAPI(id) {
     console.log(result.meals[0]);
 
     $(".loading").addClass('hideBox');
+    document.documentElement.style.overflow = 'auto'
+    document.body.style.overflow = 'auto'
+
     displayMealDetails(result.meals[0])
 }
 
 async function categoriesAPI(category) {
     $(".loading").fadeIn(300).removeClass('hideBox')
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
 
     let url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
     console.log(url);
@@ -66,11 +82,16 @@ async function categoriesAPI(category) {
     $('#mainRecipes').removeClass('d-none')
 
     $(".loading").addClass('hideBox');
+    document.documentElement.style.overflow = 'auto'
+    document.body.style.overflow = 'auto'
+
     displayMeal(result.meals)
 }
 
 async function countriesAPI(country) {
     $(".loading").fadeIn(300).removeClass('hideBox')
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
 
     let url = `https://www.themealdb.com/api/json/v1/1/filter.php?a=${country}`
     console.log(url);
@@ -83,11 +104,16 @@ async function countriesAPI(country) {
     $('#mainRecipes').removeClass('d-none')
 
     $(".loading").addClass('hideBox');
+    document.documentElement.style.overflow = 'auto'
+    document.body.style.overflow = 'auto'
+
     displayMeal(result.meals)
 }
 
 async function getMealByIngredient(ingredient) {
     $(".loading").fadeIn(300).removeClass('hideBox')
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
 
     let url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
     console.log(url);
@@ -100,17 +126,25 @@ async function getMealByIngredient(ingredient) {
     $('#mainRecipes').removeClass('d-none')
 
     $(".loading").addClass('hideBox');
+    document.documentElement.style.overflow = 'auto'
+    document.body.style.overflow = 'auto'
+
     displayMeal(result.meals)
 }
 
 async function getIngredientsMeals() {
     $(".loading").fadeIn(300).removeClass('hideBox')
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
 
     let response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`)
     let result = await response.json()
     console.log(result.meeals);
 
     $(".loading").addClass('hideBox');
+    document.documentElement.style.overflow = 'auto'
+    document.body.style.overflow = 'auto'
+    
     displayIngredients(result.meals)
 }
 
@@ -342,9 +376,13 @@ function togglePopup(id) {
         mealDetailsAPI(id);
         mealPage.removeClass('hideBox');
         mealPage.addClass('showBox');
+        document.documentElement.style.overflow = 'hidden'
+        document.body.style.overflow = 'hidden'
     } else {
         mealPage.removeClass('showBox');
         mealPage.addClass('hideBox');
+        document.documentElement.style.overflow = 'auto'
+        document.body.style.overflow = 'auto'
     }
 }
 
@@ -415,13 +453,10 @@ async function updateSectionOnClick(link) {
 
     // Close the sidebar
     closeSidebar();
-    if (mealPage.hasClass('hideBox')) {
-        mealPage.removeClass('hideBox');
-        mealPage.addClass('showBox');
-    } else {
+    if (mealPage.hasClass('showBox')) {
         mealPage.removeClass('showBox');
         mealPage.addClass('hideBox');
-    }
+    } 
 
     $('.section').addClass('d-none');
     $('.nav-link').removeClass('active');
